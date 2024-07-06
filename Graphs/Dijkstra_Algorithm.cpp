@@ -12,11 +12,11 @@ public:
         vector<int> result(v ,INT32_MAX);
 
         result[S]= 0 ;
-        pq.push({S ,0}) ; // {node , distance} is the input way
+        pq.push({0 ,S}) ; // {distance , node}  we should store it this way because this aims at minimisizing the distance
 
         while (!pq.empty()) {
-            int source = pq.top().first ;
-            int distance_source = pq.top().second ;
+            int distance_source  = pq.top().first ;
+            int source = pq.top().second ;
             pq.pop();
 
             for(auto& neighbour : adj[source]) {
